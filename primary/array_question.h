@@ -1,6 +1,7 @@
 #include <vector>
 #include "iostream"
 #include "set"
+#include <unordered_map>
 
 using namespace std;
 
@@ -19,3 +20,11 @@ vector<int> intersect(vector<int>& nums1, vector<int>& nums2);
 vector<int> plusOne(vector<int>& digits);
 
 void moveZeroes(vector<int>& nums);
+
+vector<int> twoSum(vector<int>& nums, int target);
+
+bool isValidSudoku(vector<vector<char>>& board);
+
+void rotateMatrix(vector<vector<int>>& matrix);
+
+void rotateMatrix2(vector<vector<int>>& matrix);
