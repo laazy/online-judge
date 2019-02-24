@@ -1,3 +1,5 @@
+#ifndef ARRAY_QUESTION_H
+#define ARRAY_QUESTION_H
 #include <vector>
 #include "iostream"
 #include "set"
@@ -28,3 +30,5 @@ bool isValidSudoku(vector<vector<char>>& board);
 void rotateMatrix(vector<vector<int>>& matrix);
 
 void rotateMatrix2(vector<vector<int>>& matrix);
+
+#endif

@@ -1,18 +1,6 @@
 #include "array_question.h"
 #include "../main.h"
-
-void print_vec(const vector<int> &vec){
-    for (int i : vec){
-        cout << i << " ";
-    }
-    cout << endl;
-}
-
-void print_matrix(const vector<vector<int>> &mat){
-    for (auto i : mat){
-        print_vec(i);
-    }
-}
+#include "../util.h"
 
 void test_removeDuplicates(){
     vector<int> vec{1,2,3,3,3,4,5,6,6,7,7,7,8};
