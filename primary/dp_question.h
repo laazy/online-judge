@@ -10,5 +10,4 @@ using namespace std;
 int climbStairs(int n);
 
 int maxProfit(vector<int>& prices);
-
 #endif
