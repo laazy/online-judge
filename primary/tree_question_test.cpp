@@ -9,7 +9,7 @@ TreeNode* build_tree(vector<int> nums){
     queue<TreeNode*> temp;
     TreeNode *root = new TreeNode(nums[0]);
     temp.push(root);
-    for (int i = 1; i < nums.size();){
+    for (size_t i = 1; i < nums.size();){
         TreeNode *top = temp.front();
         temp.pop();
         if (nums[i] != 0){
@@ -26,12 +26,24 @@ TreeNode* build_tree(vector<int> nums){
     return root;
 }
 
-
 void test_maxDepth(){
+    cout << maxDepth(build_tree({5,1,4,0,0,3,6})) << endl;
+    cout << maxDepth(build_tree({2,1,3})) << endl;
+}
 
+void test_isValidBST(){
+    cout << isValidBST(build_tree({5,1,4,0,0,3,6})) << endl;
+    cout << isValidBST(build_tree({2,1,3})) << endl;
+    cout << isValidBST(build_tree({10,5,15,0,0,6,20})) << endl;
+}
+
+void test_isValidBST2(){
+    cout << isValidBST2(build_tree({5,1,4,0,0,3,6})) << endl;
+    cout << isValidBST2(build_tree({2,1,3})) << endl;
+    cout << isValidBST2(build_tree({10,5,15,0,0,6,20})) << endl;
 }
 
 int func(){
-    TreeNode *root = build_tree({5,1,4,0,0,3,6});
+    test_isValidBST2();
     return 0;
 }
