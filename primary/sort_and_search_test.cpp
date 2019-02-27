@@ -9,6 +9,10 @@ void test_merge(){
     print_vec(num1);
 }
 
+void test_firstBadVersion(){
+    
+}
+
 int func(){
     test_merge();
     return 0;
