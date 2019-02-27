@@ -4,6 +4,7 @@
 #include <iostream>
 #include <queue>
 #include <vector>
+#include <stack>
 
 using namespace std;
 
@@ -15,5 +16,15 @@ struct TreeNode {
 };
 
 int maxDepth(TreeNode* root);
+
+bool isValidBST(TreeNode* root);
+
+bool isValidBST2(TreeNode* root);
+
+bool isSymmetric(TreeNode* root);
+
+vector<vector<int>> levelOrder(TreeNode* root);
+
+TreeNode* sortedArrayToBST(vector<int>& nums);
 
 #endif
