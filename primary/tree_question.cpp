@@ -63,3 +63,30 @@ bool isValidBST2(TreeNode* root){
     }
     return true;
 }
+
+
+bool isSymmetric(TreeNode* root) {
+    if (!root){
+        return true;
+    }
+    stack<TreeNode*> left, right;
+    left.push(root->left);
+    right.push(root->right);
+    TreeNode *left_node, *right_node;
+    while (!left.empty() || !right.empty()){
+        left_node = left.top();
+        right_node = right.top();
+        left.pop();
+        right.pop();
+        if (!left_node ^ !right_node || (left_node && (left_node->val != right_node->val))){
+            return false;
+        }
+        if (left_node && right_node){
+            left.push(left_node->left);
+            left.push(left_node->right);
+            right.push(right_node->right);
+            right.push(right_node->left);
+        }
+    }
+    return true;
+}

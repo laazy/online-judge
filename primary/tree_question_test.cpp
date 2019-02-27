@@ -51,6 +51,6 @@ void test_isSymmetric(){
 }
 
 int func(){
-    test_isValidBST2();
+    test_isSymmetric();
     return 0;
 }
