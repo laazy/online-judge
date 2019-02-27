@@ -119,3 +119,26 @@ vector<vector<int>> levelOrder(TreeNode* root) {
     }
     return ans;
 }
+
+TreeNode* SAThelper(vector<int> &nums, size_t begin, size_t end){
+    if (begin == end){
+        return new TreeNode(nums[begin]);
+    }
+    size_t index = (begin + end) / 2;
+    TreeNode *ans = new TreeNode(nums[index]);
+    if (index != begin){
+        ans->left = SAThelper(nums, begin, index - 1);
+    }
+    if (index != end){
+        ans->right = SAThelper(nums, index + 1, end);
+    }
+    return ans;    
+}
+
+TreeNode* sortedArrayToBST(vector<int>& nums) {
+    if (nums.empty()){
+        return NULL;
+    }
+    TreeNode* ans = SAThelper(nums, 0, nums.size() - 1);
+    return ans;
+}

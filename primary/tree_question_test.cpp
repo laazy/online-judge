@@ -54,7 +54,16 @@ void test_levelOrder(){
     print_matrix(levelOrder(build_tree({3,9,20,null,null,15,7})));
 }
 
+void test_sortedArrayToBST(){
+    vector<int> nums1 = {-10,-3,0,5,9};
+    print_matrix(levelOrder(sortedArrayToBST(nums1)));
+    vector<int> nums2 = {0};
+    print_matrix(levelOrder(sortedArrayToBST(nums2)));
+    vector<int> nums3 = {0, 1};
+    print_matrix(levelOrder(sortedArrayToBST(nums3)));
+}
+
 int func(){
-    test_levelOrder();
+    test_sortedArrayToBST();
     return 0;
 }
