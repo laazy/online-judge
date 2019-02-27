@@ -50,7 +50,11 @@ void test_isSymmetric(){
     cout << isSymmetric(build_tree({1,2,2,null,3,null,3})) <<endl;    
 }
 
+void test_levelOrder(){
+    print_matrix(levelOrder(build_tree({3,9,20,null,null,15,7})));
+}
+
 int func(){
-    test_isSymmetric();
+    test_levelOrder();
     return 0;
 }

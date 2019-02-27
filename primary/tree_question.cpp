@@ -90,3 +90,32 @@ bool isSymmetric(TreeNode* root) {
     }
     return true;
 }
+
+vector<vector<int>> levelOrder(TreeNode* root) {
+    if (!root){
+        return vector<vector<int>> {};
+    }
+    queue<TreeNode*> out_tree, in_tree;
+    if (root){
+        out_tree.push(root);
+    }
+    TreeNode *cur;
+    vector<vector<int>> ans;
+    while (!out_tree.empty()){
+        vector<int> temp;
+        while (!out_tree.empty()){
+            cur = out_tree.front();
+            temp.push_back(cur->val);
+            out_tree.pop();
+            if (cur->left){
+                in_tree.push(cur->left);
+            }
+            if (cur->right){
+                in_tree.push(cur->right);
+            }
+        }
+        ans.push_back(temp);
+        out_tree.swap(in_tree);
+    }
+    return ans;
+}

@@ -23,4 +23,8 @@ bool isValidBST2(TreeNode* root);
 
 bool isSymmetric(TreeNode* root);
 
+vector<vector<int>> levelOrder(TreeNode* root);
+
+TreeNode* sortedArrayToBST(vector<int>& nums);
+
 #endif
