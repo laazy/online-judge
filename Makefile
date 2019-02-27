@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g -Wall
 PROJECT_PATH = primary
-TARGET = sort_and_search
+TARGET = dp_question
 TARGET_TEST = $(TARGET)_test
 
 main: main.o $(TARGET).o $(TARGET_TEST).o util.o
