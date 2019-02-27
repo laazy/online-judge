@@ -1,6 +1,7 @@
 #ifndef SORT_AND_SEARCH_H
 #define SORT_AND_SEARCH_H
 #include <stdlib.h>
+#include <iostream>
 #include <vector>
 
 using namespace std;

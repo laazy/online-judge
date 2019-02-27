@@ -17,6 +17,22 @@ void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
     }
 }
 
-int firstBadVersion(int n) {
+bool isBadVersion(int version){
+    return version >= 4;
+}
 
+int firstBadVersion(int n) {
+    if (isBadVersion(1)){
+        return 1;
+    }
+    int low = 1, high = n, cur;
+    while ((high - low) > 1){
+        cur = low / 2 + high / 2 + (low % 2 + high % 2) / 2 ;
+        if (isBadVersion(cur)){
+            high = cur;
+        }else{
+            low = cur;
+        }
+    }
+    return high;
 }

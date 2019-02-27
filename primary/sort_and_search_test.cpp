@@ -10,10 +10,11 @@ void test_merge(){
 }
 
 void test_firstBadVersion(){
-    
+    cout << firstBadVersion(10) << endl;
+    cout << firstBadVersion(5) << endl;
 }
 
 int func(){
-    test_merge();
+    test_firstBadVersion();
     return 0;
 }
