@@ -18,8 +18,13 @@ void test_maxProfit(){
     cout << maxProfit(nums2) << endl;
 }
 
+void test_maxSubArray(){
+    vector<int> n1 = {-2,1,-3,4,-1,2,1,-5,4};
+    cout << maxSubArray(n1) << endl;
+}
+
 
 int func(){
-    test_maxProfit();
+    test_maxSubArray();
     return 0;
 }
