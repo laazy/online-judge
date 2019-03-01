@@ -9,7 +9,12 @@ void test_fizzBuzz(){
     }
 }
 
+void test_countPrimes(){
+    cout << countPrimes(10) << endl;
+    cout << countPrimes(2) << endl;
+}
+
 int func(){
-    test_fizzBuzz();
+    test_countPrimes();
     return 0;
 }
