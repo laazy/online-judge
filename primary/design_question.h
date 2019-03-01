@@ -32,8 +32,7 @@ public:
     
     int getMin();
 private:
-    int min = INT32_MAX;
-    stack<int> inner_stack;
+    vector<int> inner_stack;
 };
 
 #endif

@@ -23,21 +23,25 @@ MinStack::MinStack(){
 }
 
 void MinStack::push(int x){
-    if (x < min){
-        min = x;
-    }   
-    inner_stack.push(x);
+    inner_stack.push_back(x);
 }
 
 void MinStack::pop(){
+    inner_stack.pop_back();
         
 }
 
 int MinStack::top(){
-    
+    return inner_stack.back();
 }
 
 int MinStack::getMin(){
-    
+    int ans = INT32_MAX;   
+    for (int i : inner_stack){
+        if (i < ans){
+            ans = i;
+        }
+    } 
+    return ans;
 }
 
