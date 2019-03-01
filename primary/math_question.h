@@ -12,4 +12,10 @@ vector<string> fizzBuzz(int n);
 
 int countPrimes(int n);
 
+bool isPowerOfThree(int n);
+
+bool isPowerOfThree_adv(int n);
+
+int romanToInt(string s);
+
 #endif

@@ -14,7 +14,29 @@ void test_countPrimes(){
     cout << countPrimes(2) << endl;
 }
 
+void test_isPowerOfThree(){
+    cout << (isPowerOfThree(27) == 1) << endl;
+    cout << (isPowerOfThree(0) == 0) << endl;
+    cout << (isPowerOfThree(9) == 1) << endl;
+    cout << (isPowerOfThree(45) == 0) << endl;
+}
+
+void test_isPowerOfThree_adv(){
+    cout << (isPowerOfThree_adv(27) == 1) << endl;
+    cout << (isPowerOfThree_adv(0) == 0) << endl;
+    cout << (isPowerOfThree_adv(9) == 1) << endl;
+    cout << (isPowerOfThree_adv(45) == 0) << endl;
+}
+
+void test_romanToInt(){
+    cout << romanToInt("III") <<endl;
+    cout << romanToInt("IV") <<endl;
+    cout << romanToInt("IX") <<endl;
+    cout << romanToInt("LVIII") <<endl;
+    cout << romanToInt("MCMXCIV") <<endl;
+}
+
 int func(){
-    test_countPrimes();
+    test_romanToInt();
     return 0;
 }
