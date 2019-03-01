@@ -37,6 +37,6 @@ void test_romanToInt(){
 }
 
 int func(){
-    test_romanToInt();
+    test_isPowerOfThree_adv();
     return 0;
 }

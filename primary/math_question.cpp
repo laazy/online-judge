@@ -73,10 +73,13 @@ bool isPowerOfThree(int n) {
 }
 
 /**
- * 另一种方式是不使用迭代和递归的方式
+ * 另一种方式是不使用迭代和递归的方式，这种方式比较巧妙。、
+ * 之所以没有想到是因为没有考虑到计算机中数是有限的。
+ * 这个方法本质在于找到当前这个长度允许的最大的三的幂
+ * 通过取余就可以得到是否当前数被包含在其中
  */ 
 bool isPowerOfThree_adv(int n){
-    return true;
+    return n > 0 && 1162261467 % n == 0;
 }
 
 int romanToInt(string s) {
