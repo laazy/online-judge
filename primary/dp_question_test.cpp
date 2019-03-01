@@ -23,8 +23,15 @@ void test_maxSubArray(){
     cout << maxSubArray(n1) << endl;
 }
 
+void test_rob(){
+    vector<int> n1 = {1,2,3,1};
+    cout << rob(n1) << endl;
+    vector<int> n2 = {2,7,9,3,1};
+    cout << rob(n2) << endl;
+}
+
 
 int func(){
-    test_maxSubArray();
+    test_rob();
     return 0;
 }

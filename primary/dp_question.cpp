@@ -41,3 +41,23 @@ int maxSubArray(vector<int>& nums) {
     }
     return ans;
 }
+
+int rob(vector<int>& nums) {
+    if (nums.empty()){
+        return 0;
+    }
+    int total = nums[0];
+    size_t last = 0;
+    for (size_t i = 1; i < nums.size(); i++){
+        if (last == i - 1){
+            if (total < total - nums[last] + nums[i]){
+                last = i;
+                total += nums[i] - nums[last];
+            }
+        }else{
+            total += nums[i];
+            last = i;
+        }
+    }
+    return total;
+}
