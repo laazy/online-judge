@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g -Wall
-PROJECT_PATH = primary
-TARGET = other_question
+PROJECT_PATH = tencent
+TARGET = array_and_test
 TARGET_TEST = $(TARGET)_test
 
 main: main.o $(TARGET).o $(TARGET_TEST).o util.o
@@ -14,6 +14,10 @@ $(TARGET).o: $(PROJECT_PATH)/$(TARGET).h $(PROJECT_PATH)/$(TARGET).cpp
 
 $(TARGET_TEST).o: $(PROJECT_PATH)/$(TARGET_TEST).cpp
 	$(CC) $(CFLAGS) -c $^
+
+.PHONY : create
+create:
+	./create.sh $(PROJECT_PATH) $(TARGET) $(TARGET_TEST)
 
 .PHONY : clean	
 clean:
