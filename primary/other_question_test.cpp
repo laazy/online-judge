@@ -23,7 +23,11 @@ void test_reverseBits(){
     cout << (reverseBits(4294967293) == 3221225471) << endl;
 }
 
+void test_generate(){
+    print_matrix(generate(5));
+}
+
 int func(){
-    test_reverseBits();
+    test_generate();
     return 0;
 }

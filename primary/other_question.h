@@ -14,4 +14,6 @@ int hammingDistance(int x, int y);
 
 uint32_t reverseBits(uint32_t n);
 
+vector<vector<int>> generate(int numRows);
+
 #endif
