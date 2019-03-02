@@ -2,6 +2,7 @@
 #define OTHER_QUESTION_H
 #include <vector>
 #include "iostream"
+#include <stack>
 
 using namespace std;
 
@@ -15,5 +16,9 @@ int hammingDistance(int x, int y);
 uint32_t reverseBits(uint32_t n);
 
 vector<vector<int>> generate(int numRows);
+
+bool isValid(string s);
+
+int missingNumber(vector<int> nums);
 
 #endif

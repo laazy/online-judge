@@ -47,3 +47,46 @@ vector<vector<int>> generate(int numRows) {
     }  
     return ans;
 }
+
+bool isValid(string s){
+    stack<char> symbol;
+    while(!s.empty()){
+        char temp = 0;
+        switch (s.back())
+        {
+            case ')':case ']':case '}':
+                symbol.push(s.back());
+                break;
+            case '(':
+                temp = ')';
+                break;
+            case '[':
+                temp = ']';
+                break;
+            case '{':
+                temp = '}';
+                break;
+            default:
+                return false;
+        }
+        if (temp != 0){
+            if (!symbol.empty() && temp == symbol.top()){
+                symbol.pop();
+            }else{
+                return false;
+            }
+        }
+        s.pop_back();
+    }
+    return symbol.empty();
+}
+
+// 也可以用异或的方式
+int missingNumber(vector<int> nums) {
+    size_t size = nums.size();
+    unsigned long total = (size * (size + 1)) / 2;
+    for (int i : nums){
+        total -= i;
+    }
+    return total;
+}
