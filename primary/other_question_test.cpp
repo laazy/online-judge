@@ -14,8 +14,16 @@ void test_hammingWeight2(){
     cout << hammingWeight2(0xfffffffd) << endl;
 }
 
+void test_hammingDistance(){
+    cout << hammingDistance(1, 4) << endl;
+}
+
+void test_reverseBits(){
+    cout << (reverseBits(43261596) == 964176192) << endl;
+    cout << (reverseBits(4294967293) == 3221225471) << endl;
+}
+
 int func(){
-    test_hammingWeight();
-    test_hammingWeight2();
+    test_reverseBits();
     return 0;
 }

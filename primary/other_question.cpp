@@ -15,3 +15,22 @@ int hammingWeight2(uint32_t n) {
     }
     return ans;
 }
+
+// 此处大概思想仍为计算异或结果的汉明重量
+int hammingDistance(int x, int y) {
+    uint32_t i = x ^ y;
+    i = (i & 0x55555555) + ((i >> 1) & 0x55555555);
+    i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
+    i = (i & 0x0f0f0f0f) + ((i >> 4) & 0x0f0f0f0f);
+    i = i * 0x01010101;
+    return i >> 24;
+}
+
+uint32_t reverseBits(uint32_t n){
+    uint32_t ans = 0;
+    for (int i = 0; i < 32; i++){
+        ans = ans << 1;
+        ans = ans | ((n >> i) & 0x1);
+    }
+    return ans;
+}

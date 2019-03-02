@@ -8,5 +8,10 @@ using namespace std;
 int hammingWeight(uint32_t n);
 
 int hammingWeight2(uint32_t n);
+// 还存在使用编译器内置的pop_count来计算的方法，抑或调用标准库
+
+int hammingDistance(int x, int y);
+
+uint32_t reverseBits(uint32_t n);
 
 #endif
