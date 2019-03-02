@@ -35,6 +35,7 @@ int MinStack::top(){
     return inner_stack.back();
 }
 
+// 这里还可以用一个栈保存最小值，返回栈顶
 int MinStack::getMin(){
     int ans = INT32_MAX;   
     for (int i : inner_stack){
