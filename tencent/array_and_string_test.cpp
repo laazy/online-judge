@@ -1,4 +1,4 @@
-#include "array_and_test.h"
+#include "array_and_string.h"
 #include "../util.h"
 #include "../main.h"
 

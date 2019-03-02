@@ -1,7 +1,8 @@
-#ifndef ARRAY_AND_TEST_H
-#define ARRAY_AND_TEST_H
+#ifndef ARRAY_AND_STRING_H
+#define ARRAY_AND_STRING_H
 #include <stdlib.h>
 #include <iostream>
 
 using namespace std;
+
 #endif

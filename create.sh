@@ -17,6 +17,7 @@ then
     echo "#include <iostream>" >> $TARGET_H
     echo "
 using namespace std;" >> $TARGET_H
+    echo "" >> $TARGET_H
     echo "#endif" >> $TARGET_H
 fi
 
