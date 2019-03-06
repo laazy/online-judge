@@ -1,6 +1,6 @@
 CC = g++
 CFLAGS = -g -Wall
-PROJECT_PATH = tencent
+PROJECT_PATH = intermediate
 TARGET = array_and_string
 TARGET_TEST = $(TARGET)_test
 

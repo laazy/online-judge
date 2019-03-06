@@ -8,7 +8,10 @@ TARGET_H=$DIR/$2.h
 TARGET_CPP=$DIR/$2.cpp
 TARGET_TEST=$DIR/$3.cpp
 MACRO=$(echo $2 | tr 'a-z' 'A-Z')_H
-
+if [ ! -d $1 ]
+then
+    mkdir $1
+fi
 if [ ! -e $TARGET_H ]
 then
     echo "#ifndef $MACRO" >> $TARGET_H 
