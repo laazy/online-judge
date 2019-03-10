@@ -1,25 +1,7 @@
 #include "array_and_string.h"
 
 vector<vector<int>> threeSum(vector<int>& nums){
-    // sort
-    unordered_map<int, pair<int, int>> hash_map;
-    for (size_t i = 0; i < nums.size(); i++){
-        auto ptr = hash_map.find(nums[i]);
-        if (ptr == hash_map.end()){
-            hash_map[nums[i]] = pair<int, int>{1, i};
-        }else{
-            hash_map[nums[i]].first++;
-        }
-    }
     vector<vector<int>> ans;
-    for (size_t i = 0; i < hash_map.size(); i++){
-        for (size_t j = i + 1; j < hash_map.size(); j++){
-            auto ptr = hash_map.find((0 - nums[i] - nums[j]));
-            if (ptr != hash_map.end() && ptr->second.second > j){
-                ans.push_back(vector<int>{nums[i], nums[j], ptr->first});       
-            }
-        }
-    }
     return ans;
 }
 
@@ -50,10 +32,68 @@ void setZeroes(vector<vector<int>>& matrix) {
     }
 }
 
-// 尝试用动态规划的方法给出一种空间O(1)的方法
+// 尝试给出一种空间O(1)的方法
 void setZeroes2(vector<vector<int>>& matrix) {
     if (matrix.size() == 0){
         return;
     }
+    bool first_row = false, first_col = false;
+    size_t row_cnt = matrix.size(), col_cnt = matrix[0].size();
+    for (size_t i = 0; i < row_cnt; i++){
+        if (matrix[i][0] == 0){
+            first_col = true;
+        }
+    }
+    for (size_t i = 0; i < col_cnt; i++){
+        if (matrix[0][i] == 0){
+            first_row = true;
+        }
+    }
+    for (size_t i = 1; i < row_cnt; i++){
+        for (size_t j = 1; j < col_cnt; j++){
+            if (matrix[i][j] == 0){
+                matrix[0][j] = 0;
+                matrix[i][0] = 0;
+            }
+        }
+    }
+    for (size_t i = 1; i < row_cnt; i++){
+        for (size_t j = 1; j < col_cnt; j++){
+            if (matrix[i][0] == 0 || matrix[0][j] == 0){
+                matrix[i][j] = 0;
+            }
+        }
+    }
+    if (first_col){
+        for (size_t i = 0; i < row_cnt; i++){
+            matrix[i][0] = 0;
+        }
+    }
+    if (first_row){
+        matrix[0].assign(col_cnt, 0);
+    }
 }
+
+
+// 可用哈希表来提升速度
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    vector<vector<string>> ans;
+    map<vector<int>, size_t> str_table;
+    for (auto i : strs){
+        vector<int> letter(26, 0);
+        for (const auto &j : i){
+            letter[j-'a']++;
+        }
+        auto ptr = str_table.find(letter);
+        if (ptr == str_table.end()){
+            str_table[letter] = ans.size();
+            ans.push_back({i});
+        }else{
+            ans[ptr->second].push_back(i);
+        }
+    }
+    return ans;
+}
+
+
 

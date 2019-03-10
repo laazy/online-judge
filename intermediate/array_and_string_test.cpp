@@ -76,8 +76,18 @@ void test_setZeroes2(){
     setZeroes2(matrix2);
     print_matrix(matrix2);
 }
+void test_groupAnagrams(){
+    vector<string> strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
+    auto ans = groupAnagrams(strs);
+    for (const auto &i : ans){
+        for (const auto &j: i){
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
 
 int func(){
-    test_setZeroes2();
+    test_groupAnagrams();
     return 0;
 }
