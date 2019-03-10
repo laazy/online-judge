@@ -95,5 +95,25 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
     return ans;
 }
 
-
+// 这道题很简单，用最长递增子串的思路就可以了。
+int lengthOfLongestSubstring(string s) {
+    int max_size = 0, temp = 0;
+    size_t head = 0;
+    for (size_t i = 0; i < s.size(); i++){
+        size_t j;
+        for (j = head; j < i; j++){
+            if (s[j] == s[i]){
+                break;
+            }
+        }
+        if (j == i){
+            temp++;
+        }else{
+            temp = i - j;
+            head = j + 1;
+        }
+        max_size = max(max_size, temp);
+    }
+    return max_size;
+}
 

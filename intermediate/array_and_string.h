@@ -17,6 +17,6 @@ void setZeroes2(vector<vector<int>>& matrix);
 
 vector<vector<string>> groupAnagrams(vector<string>& strs);
 
-
+int lengthOfLongestSubstring(string s);
 
 #endif

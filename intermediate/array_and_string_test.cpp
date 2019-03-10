@@ -87,7 +87,14 @@ void test_groupAnagrams(){
     }
 }
 
+void test_lengthOfLongestSubstring(){
+    cout << lengthOfLongestSubstring("abcabcbb") << endl;
+    cout << lengthOfLongestSubstring("bbbbb") << endl;
+    cout << lengthOfLongestSubstring("pwwkew") << endl;
+    cout << lengthOfLongestSubstring("dvdf") << endl;
+}
+
 int func(){
-    test_groupAnagrams();
+    test_lengthOfLongestSubstring();
     return 0;
 }
