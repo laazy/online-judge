@@ -19,4 +19,8 @@ vector<vector<string>> groupAnagrams(vector<string>& strs);
 
 int lengthOfLongestSubstring(string s);
 
+string longestPalindrome(string s);
+
+bool increasingTriplet(vector<int>& nums);
+
 #endif

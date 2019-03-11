@@ -94,7 +94,19 @@ void test_lengthOfLongestSubstring(){
     cout << lengthOfLongestSubstring("dvdf") << endl;
 }
 
+void void_longestPalindrome(){
+    cout << longestPalindrome("babad") << endl;
+    cout << longestPalindrome("cbbd") << endl;
+}
+
+void test_increasingTriplet(){
+    vector<int> nums1 {1,2,3,4,5};
+    cout << increasingTriplet(nums1) << endl;
+    vector<int> nums2 {5,4,3,2,1};
+    cout << increasingTriplet(nums2) << endl;
+}
+
 int func(){
-    test_lengthOfLongestSubstring();
+    test_increasingTriplet();
     return 0;
 }

@@ -131,3 +131,41 @@ int lengthOfLongestSubstring(string s) {
     return max_size;
 }
 
+string longestPalindrome(string s) {
+    string str;
+    for (const char &c : s){
+        str.push_back('#');
+        str.push_back(c);
+    }
+    str.push_back('#');
+
+    return str;
+
+}
+
+bool increasingTriplet(vector<int>& nums) {
+    int first = INT32_MAX, second = INT32_MAX, min_num = INT32_MAX;
+    for(int &i : nums){
+        if (i < min_num){
+            min_num = i;
+            continue;
+        }
+        if (i > second){
+            return true;
+        }
+        if (i > min_num && second > i){
+            first = min_num;
+            second = i;
+        }
+    }
+    return false;
+}
+
+
+
+
+
+
+
+
+
