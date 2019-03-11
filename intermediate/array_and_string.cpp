@@ -143,6 +143,13 @@ string longestPalindrome(string s) {
 
 }
 
+/**
+ * 
+ * 这题很简单，只需要找最小的第二个数就可以了
+ * https://leetcode-cn.com/explore/interview/card/top-interview-questions-medium/29/array-and-strings/80/
+ * 遍历发现满足条件：有一个数小于之前的第二个数，且大于之前数中的最小值，那么这个数就是新的第二个数
+ * 如果有数大于第二个数，则符合题意
+ */ 
 bool increasingTriplet(vector<int>& nums) {
     int first = INT32_MAX, second = INT32_MAX, min_num = INT32_MAX;
     for(int &i : nums){
