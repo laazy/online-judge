@@ -1,7 +1,48 @@
 #include "array_and_string.h"
 
+/**
+ * 思路是这样：
+ * 构造一个数据结构set<set<int>> ans
+ * 再构造一个map，里面存放所有数字的个数
+ * 然后遍历输入数组，对每个二元组求和
+ * 求其相反数与其组成的set是否已放入ans，已放入则跳过
+ * 求其相反数是否存在，若存在是否用尽
+ * 通过则放入
+ * 
+ */ 
 vector<vector<int>> threeSum(vector<int>& nums){
+    set<unordered_multiset<int>> ans_set;
     vector<vector<int>> ans;
+    unordered_map<int, int> table;
+    for (const int& i : nums){
+        auto ptr = table.find(i);
+        if (ptr == table.end()){
+            table[i] = 1;
+        }else{
+            ptr->second++;
+        }
+    }
+
+    for (size_t i = 0; i < nums.size(); i++){
+        for (size_t j = i + 1; j < nums.size(); j++){
+            int k = 0 - nums[i] - nums[j];
+            unordered_multiset<int> temp = {nums[i], nums[j], k};
+            if (ans_set.find(temp) != ans_set.end() ||
+                table.find(k) == table.end() || 
+                table[k] - (nums[i] == k) - (nums[j] == k) < 0){
+                continue;
+            }
+            ans_set.insert(temp);
+        }
+    }
+    for (const auto &i : ans_set){
+        vector<int> temp;
+        for (const auto &j : i){
+            temp.push_back(j);
+        }
+        ans.push_back(temp);
+    }
+
     return ans;
 }
 
@@ -151,7 +192,7 @@ string longestPalindrome(string s) {
  * 如果有数大于第二个数，则符合题意
  */ 
 bool increasingTriplet(vector<int>& nums) {
-    int first = INT32_MAX, second = INT32_MAX, min_num = INT32_MAX;
+    int second = INT32_MAX, min_num = INT32_MAX;
     for(int &i : nums){
         if (i < min_num){
             min_num = i;
@@ -160,13 +201,13 @@ bool increasingTriplet(vector<int>& nums) {
         if (i > second){
             return true;
         }
-        if (i > min_num && second > i){
-            first = min_num;
+        if (second > i){
             second = i;
         }
     }
     return false;
 }
+
 
 
 

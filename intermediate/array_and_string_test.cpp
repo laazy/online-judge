@@ -107,6 +107,6 @@ void test_increasingTriplet(){
 }
 
 int func(){
-    test_increasingTriplet();
+    test_threeSum();
     return 0;
 }

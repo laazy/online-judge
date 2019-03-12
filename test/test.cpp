@@ -9,7 +9,34 @@ int test_hello() {
     return 0;
 }
 
+
+class test{
+    public:
+        int data;
+        test(int data){
+            this->data = data;
+            cout << "test1" << this << endl;
+        }
+
+        test(test&& t){
+            this->data = 1;
+            cout << "test2" << endl;
+        }
+        test & operator=(test && t){
+            this->data = t.data;
+            cout << "op=" << endl;
+            return *this;
+        }
+};
+
+test func2(int data){
+    return test(data);
+}
+
 int func(){
-    test_hello();
+    // test t(1);
+    test b(10);
+    test t = test((func2(2)));
+    cout << t.data << endl;
     return 0;
 }
