@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g -Wall
-PROJECT_PATH = intermediate
-TARGET = array_and_string
+PROJECT_PATH = interview
+TARGET = unordered
 TARGET_TEST = $(TARGET)_test
 
 main: main.o $(TARGET).o $(TARGET_TEST).o util.o

@@ -11,37 +11,37 @@
  * 
  */ 
 vector<vector<int>> threeSum(vector<int>& nums){
-    set<unordered_multiset<int>> ans_set;
+    // set<unordered_multiset<int>> ans_set;
     vector<vector<int>> ans;
-    unordered_map<int, int> table;
-    for (const int& i : nums){
-        auto ptr = table.find(i);
-        if (ptr == table.end()){
-            table[i] = 1;
-        }else{
-            ptr->second++;
-        }
-    }
+    // unordered_map<int, int> table;
+    // for (const int& i : nums){
+    //     auto ptr = table.find(i);
+    //     if (ptr == table.end()){
+    //         table[i] = 1;
+    //     }else{
+    //         ptr->second++;
+    //     }
+    // }
 
-    for (size_t i = 0; i < nums.size(); i++){
-        for (size_t j = i + 1; j < nums.size(); j++){
-            int k = 0 - nums[i] - nums[j];
-            unordered_multiset<int> temp = {nums[i], nums[j], k};
-            if (ans_set.find(temp) != ans_set.end() ||
-                table.find(k) == table.end() || 
-                table[k] - (nums[i] == k) - (nums[j] == k) < 0){
-                continue;
-            }
-            ans_set.insert(temp);
-        }
-    }
-    for (const auto &i : ans_set){
-        vector<int> temp;
-        for (const auto &j : i){
-            temp.push_back(j);
-        }
-        ans.push_back(temp);
-    }
+    // for (size_t i = 0; i < nums.size(); i++){
+    //     for (size_t j = i + 1; j < nums.size(); j++){
+    //         int k = 0 - nums[i] - nums[j];
+    //         unordered_multiset<int> temp = {nums[i], nums[j], k};
+    //         if (ans_set.find(temp) != ans_set.end() ||
+    //             table.find(k) == table.end() || 
+    //             table[k] - (nums[i] == k) - (nums[j] == k) < 0){
+    //             continue;
+    //         }
+    //         ans_set.insert(temp);
+    //     }
+    // }
+    // for (const auto &i : ans_set){
+    //     vector<int> temp;
+    //     for (const auto &j : i){
+    //         temp.push_back(j);
+    //     }
+    //     ans.push_back(temp);
+    // }
 
     return ans;
 }
