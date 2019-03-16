@@ -29,9 +29,13 @@ bool Couple::find_couple(vector<vector<int>> nums){
         elements.push_back(num[0]);
         elements.push_back(num[1]);
         auto size = elements.size();
-        find_couple(nums);
+        if (find_couple(nums)){
+            return true;
+        }
         swap(elements[size - 1], elements[size - 2]);
-        find_couple(nums);
+        if (find_couple(nums)){
+            return true;
+        }
         elements.pop_back();
         elements.pop_back();
         nums.insert(nums.begin(), num);
