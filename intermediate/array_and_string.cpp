@@ -27,7 +27,11 @@ vector<vector<int>> threeSum(vector<int>& nums){
     }
 
     while (i < size){
+        // cut branch which is impossible
         j = i + 1;
+        if (nums[i] > 0 || (j < size && nums[i] + nums[j] > 0)){
+            break;
+        }
         last_i = nums[i];
         while (j < size){
             last_j = nums[j];
@@ -169,6 +173,10 @@ int lengthOfLongestSubstring(string s) {
     return max_size;
 }
 
+/**
+ * 这里用的O(n^2)算法，寻找中心点，然后从中间向两边扩张
+ * 额外空间为O(n)
+ */ 
 string longestPalindrome(string s) {
     string str;
     for (const char &c : s){
@@ -177,6 +185,78 @@ string longestPalindrome(string s) {
     }
     str.push_back('#');
 
+    int ans = 1;
+    int center = 0, length = 0;
+    size_t str_size = str.size();
+    for (size_t i = 0; i < str_size; i++){
+        int temp = 1;
+        size_t j;
+        for (j = 1; j < i && j + i < str_size; j++){
+            if (str[i + j] == str[i - j]){
+                temp += 2;
+            }else{
+                break;
+            }
+        }
+        if (temp > ans){
+            ans = temp;
+            center = i;
+            length = j;
+        }
+    }
+    str = str.substr(center - length + 1, length * 2 - 1);
+    for (auto ptr = str.begin(); ptr != str.end();){
+        if (*ptr == '#'){
+            ptr = str.erase(ptr);
+        }else{
+            ptr++;
+        }
+    }
+    return str;
+}
+
+string longestPalindrome2(string s){
+    string str;
+    for (const char &c : s){
+        str.push_back('#');
+        str.push_back(c);
+    }
+    str.push_back('#');
+
+    size_t str_size = str.size();
+    // 此处长度为延伸出的长度，即长度为2n+1的回文串，此处值为n
+    size_t pa_len[str_size];
+    size_t center = 0, r_limit = 0;
+
+    for (size_t i = 0; i < str_size; i++){
+        size_t i_m = 2 * center - 1;
+        pa_len[i] = r_limit > i ? min(r_limit - i, pa_len[i_m]) : 0;
+
+        while (str[i + pa_len[i] + 1] == str[i - pa_len[i] - 1]){
+            pa_len[i]++;
+        }
+
+        if (pa_len[i] + i > r_limit){
+            center = i;
+            r_limit = pa_len[i] - i;
+        }
+    }
+
+    center = 0;
+    for(const size_t &i : pa_len){
+        if(i > center){
+            center = i;
+        }
+    }
+
+    str = str.substr(center, 2 * pa_len[center] + 1);
+    for (auto ptr = str.begin(); ptr != str.end();){
+        if (*ptr == '#'){
+            ptr = str.erase(ptr);
+        }else{
+            ptr++;
+        }
+    }
     return str;
 
 }

@@ -22,6 +22,8 @@ int lengthOfLongestSubstring(string s);
 
 string longestPalindrome(string s);
 
+string longestPalindrome2(string s);
+
 bool increasingTriplet(vector<int>& nums);
 
 #endif
