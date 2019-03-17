@@ -1,48 +1,45 @@
 #include "array_and_string.h"
 
 /**
- * 思路是这样：
- * 构造一个数据结构set<set<int>> ans
- * 再构造一个map，里面存放所有数字的个数
- * 然后遍历输入数组，对每个二元组求和
- * 求其相反数与其组成的set是否已放入ans，已放入则跳过
- * 求其相反数是否存在，若存在是否用尽
- * 通过则放入
+ * 考虑这样的方式：
+ * 1. 先将输入数组排序
+ * 2. 构造一张表，储存每个值最后一次出现的位置
+ * 3. 两重循环遍历组合，但是这个循环保持如下特征，第 n 次与第 n+1 次
+ *    迭代不同值
+ * 4. 对每个组合，寻找其相反数所在位置，若其出现在两重循环位置以后则为
+ *    合法解之一
+ * 5. 收集所有这样的解，返回
  * 
+ * 这个算法可以拓展到n个数之和，时间复杂度为O(2^(n-1))，空间复杂度为O(n)
  */ 
 vector<vector<int>> threeSum(vector<int>& nums){
-    // set<unordered_multiset<int>> ans_set;
+    if (nums.size() < 3){
+        return {};
+    }
     vector<vector<int>> ans;
-    // unordered_map<int, int> table;
-    // for (const int& i : nums){
-    //     auto ptr = table.find(i);
-    //     if (ptr == table.end()){
-    //         table[i] = 1;
-    //     }else{
-    //         ptr->second++;
-    //     }
-    // }
+    unordered_map<int, size_t> pos_table;
+    size_t size = nums.size(), i = 0, j;
+    int last_i, last_j;
 
-    // for (size_t i = 0; i < nums.size(); i++){
-    //     for (size_t j = i + 1; j < nums.size(); j++){
-    //         int k = 0 - nums[i] - nums[j];
-    //         unordered_multiset<int> temp = {nums[i], nums[j], k};
-    //         if (ans_set.find(temp) != ans_set.end() ||
-    //             table.find(k) == table.end() || 
-    //             table[k] - (nums[i] == k) - (nums[j] == k) < 0){
-    //             continue;
-    //         }
-    //         ans_set.insert(temp);
-    //     }
-    // }
-    // for (const auto &i : ans_set){
-    //     vector<int> temp;
-    //     for (const auto &j : i){
-    //         temp.push_back(j);
-    //     }
-    //     ans.push_back(temp);
-    // }
+    sort(nums.begin(), nums.end()--);
+    for (size_t i = 0; i < size; i++){
+        pos_table[nums[i]] = i;
+    }
 
+    while (i < size){
+        j = i + 1;
+        last_i = nums[i];
+        while (j < size){
+            last_j = nums[j];
+            int left = 0 - nums[i] - nums[j];
+            auto ptr = pos_table.find(left);
+            if (ptr != pos_table.end() && ptr->second > j){
+                ans.push_back({nums[i], nums[j], left});
+            }
+            for (; j < size && nums[j] == last_j; j++);
+        }
+        for (; i < size && nums[i] == last_i; i++);
+    }
     return ans;
 }
 
