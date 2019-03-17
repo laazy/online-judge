@@ -5,6 +5,7 @@
 #include <vector>
 #include <set>
 #include <map>
+#include <algorithm>
 
 using namespace std;
 class Couple{
@@ -13,7 +14,12 @@ class Couple{
 
     private:
         vector<int> elements;
-        vector<vector<int>> ele_set;
 };
+
+int smallest_element(vector<int> &A);
+
+int int_time_string(int D, string &S);
+
+int vacation_time(int Y, string &A, string &B, string &W);
 
 #endif
