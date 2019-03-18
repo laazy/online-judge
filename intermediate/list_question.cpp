@@ -56,3 +56,15 @@ ListNode* oddEvenList(ListNode* head){
     even_p->next = NULL;
     return odd;
 }
+
+ListNode *getIntersectionNode(ListNode *headA, ListNode *headB){
+    if (headA == NULL || headB == NULL){
+        return NULL;
+    }
+    auto pa = headA, pb = headB;
+    while (pa != pb){
+        pa = pa == NULL ? headB : pa->next;
+        pb = pb == NULL ? headA : pb->next;
+    }
+    return pa;
+}

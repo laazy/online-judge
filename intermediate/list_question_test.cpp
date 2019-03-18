@@ -49,7 +49,21 @@ void test_oddEvenList(){
     print_list(oddEvenList(initList({2,1,3,5,6,4,7})));
 }
 
+void test_getIntersectionNode(){
+    auto l1 = initList({4,1,7,4,5});
+    auto l2 = initList({5,0,1});
+    l2->next->next->next = l1->next->next;
+    cout << getIntersectionNode(l1, l2)->val << endl;
+    l1 = initList({2,6,4});
+    l2 = initList({1,5});
+    cout << getIntersectionNode(l1, l2) << endl;
+    l1 = initList({0,9,1,2,4});
+    l2 = initList({3});
+    l2->next = l1->next->next->next;
+    cout << getIntersectionNode(l1, l2)->val <<endl;
+}
+
 int func(){
-    test_oddEvenList();
+    test_getIntersectionNode();
     return 0;
 }
