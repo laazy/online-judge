@@ -46,7 +46,7 @@ void test_addTwoNumbers(){
 
 void test_oddEvenList(){
     print_list(oddEvenList(initList({1,2,3,4,5})));
-    print_list(oddEvenList(initList({1,3,5,2,4})));
+    print_list(oddEvenList(initList({2,1,3,5,6,4,7})));
 }
 
 int func(){

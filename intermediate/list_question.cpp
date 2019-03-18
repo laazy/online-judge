@@ -36,13 +36,13 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2){
 }
 
 ListNode* oddEvenList(ListNode* head){
-    if (head->next == NULL || head->next->next == NULL){
+    if (head == NULL || head->next == NULL || head->next->next == NULL){
         return head;
     }
 
     ListNode *odd = head, *even = head->next, *odd_p = odd, *even_p = even;
-    bool is_even = true;
-    for(ListNode *ptr = head; ptr != NULL; ptr = ptr->next){
+    bool is_even = false;
+    for(ListNode *ptr = even->next; ptr != NULL; ptr = ptr->next){
         if (is_even){
             even_p->next = ptr;
             even_p = ptr;
@@ -50,7 +50,9 @@ ListNode* oddEvenList(ListNode* head){
             odd_p->next = ptr;
             odd_p = ptr;
         }
+        is_even = !is_even;
     }
     odd_p->next = even;
+    even_p->next = NULL;
     return odd;
 }
