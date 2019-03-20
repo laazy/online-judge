@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g -Wall
 PROJECT_PATH = intermediate
-TARGET = list_question
+TARGET = tree_and_graph
 TARGET_TEST = $(TARGET)_test
 
 main: main.o $(TARGET).o $(TARGET_TEST).o util.o
