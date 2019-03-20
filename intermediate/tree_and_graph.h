@@ -5,6 +5,8 @@
 #include <vector>
 #include <queue>
 #include <stack>
+#include <deque>
+#include <algorithm>
 
 using namespace std;
 
@@ -16,5 +18,7 @@ struct TreeNode {
 };
 
 vector<int> inorderTraversal(TreeNode* root);
+
+vector<vector<int>> zigzagLevelOrder(TreeNode* root);
 
 #endif

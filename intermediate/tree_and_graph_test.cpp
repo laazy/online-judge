@@ -32,7 +32,13 @@ void test_inorderTraversal(){
     print_vec(inorderTraversal(build_tree({1,null,2,3})));
 }
 
+void test_zigzagLevelOrder(){
+    print_matrix(zigzagLevelOrder(build_tree({3,9,20,null,null,15,7})));
+    print_matrix(zigzagLevelOrder(build_tree({1,2,3,4,null,null,5})));
+    print_matrix(zigzagLevelOrder(build_tree({1,2,3})));
+}
+
 int func(){
-    test_inorderTraversal();
+    test_zigzagLevelOrder();
     return 0;
 }
