@@ -38,7 +38,12 @@ void test_zigzagLevelOrder(){
     print_matrix(zigzagLevelOrder(build_tree({1,2,3})));
 }
 
+void test_buildTree(){
+    vector<int> pre = {3,9,20,15,7}, in = {9,3,15,20,7};
+    TreeNode *ans = buildTree(pre, in);
+}
+
 int func(){
-    test_zigzagLevelOrder();
+    test_buildTree();
     return 0;
 }

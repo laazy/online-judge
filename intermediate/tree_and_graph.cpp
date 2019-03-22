@@ -59,3 +59,32 @@ vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
 
     return ans;
 }
+
+int vector_find(vector<int> &vec, int tar){
+    size_t vec_size = vec.size();
+    for (int i = 0; i < vec_size; i++){
+        if (vec[i] == tar){
+            return i;
+        }
+    }
+    return -1;
+}
+
+TreeNode* buildTree_helper(vector<int>& preorder, int pre_b, vector<int>& inorder, int in_b, int in_e){
+    if (in_b > in_e){
+        return NULL;
+    }
+    TreeNode *cur = new TreeNode(preorder[pre_b]);
+    int middle = vector_find(inorder, preorder[pre_b]);
+    cur->left = buildTree_helper(preorder, pre_b + 1, inorder, in_b, middle - 1);
+    cur->right = buildTree_helper(preorder, middle - in_b + 1 + pre_b, inorder, middle + 1, in_e);
+    return cur;
+}
+
+TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+    if (preorder.empty()){
+        return nullptr;
+    }
+    TreeNode *ans = buildTree_helper(preorder, 0, inorder, 0, inorder.size() - 1);
+    return ans;
+}

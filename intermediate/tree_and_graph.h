@@ -17,8 +17,17 @@ struct TreeNode {
     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 };
 
+struct Node {
+  int val;
+  Node *left;
+  Node *right;
+  Node *next;
+};
+
 vector<int> inorderTraversal(TreeNode* root);
 
 vector<vector<int>> zigzagLevelOrder(TreeNode* root);
+
+TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 
 #endif
