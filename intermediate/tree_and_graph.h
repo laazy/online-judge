@@ -34,4 +34,6 @@ Node* connect(Node* root);
 
 Node* connect2(Node* root);
 
+int kthSmallest(TreeNode* root, int k);
+
 #endif

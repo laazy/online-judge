@@ -61,7 +61,7 @@ vector<vector<int>> zigzagLevelOrder(TreeNode* root) {
 }
 
 int vector_find(vector<int> &vec, int tar){
-    size_t vec_size = vec.size();
+    int vec_size = vec.size();
     for (int i = 0; i < vec_size; i++){
         if (vec[i] == tar){
             return i;
@@ -121,4 +121,29 @@ Node* connect2(Node* root){
         }
     }
     return root;
+}
+
+TreeNode* kthSmallest_helper(TreeNode* root, int k, int &j){
+    if (root == nullptr){
+        return nullptr;
+    }
+    TreeNode* ans = kthSmallest_helper(root->left, k , j);
+    if (ans != nullptr){
+        return ans;
+    }
+    j++;
+    if (k == j){
+        return root;
+    }
+    ans = kthSmallest_helper(root->right, k, j);
+    if (ans != nullptr){
+        return ans;
+    }
+    // unreachable statement in logic
+    return nullptr;
+}
+
+int kthSmallest(TreeNode* root, int k) {
+    int j = 0;
+    return kthSmallest_helper(root, k, j)->val;
 }

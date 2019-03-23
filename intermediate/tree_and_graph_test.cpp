@@ -41,6 +41,7 @@ void test_zigzagLevelOrder(){
 void test_buildTree(){
     vector<int> pre = {3,9,20,15,7}, in = {9,3,15,20,7};
     TreeNode *ans = buildTree(pre, in);
+    cout << ans << endl;
 }
 
 void test_connect(){
@@ -58,6 +59,7 @@ void test_connect(){
         root[i].next = nullptr;
     }
     Node* ans = connect(root);
+    cout << ans << endl;
 }
 
 void test_connect2(){
@@ -75,9 +77,17 @@ void test_connect2(){
         root[i].next = nullptr;
     }
     Node* ans = connect2(root);
+    cout << ans << endl;
+}
+
+void test_kthSmallest() {
+    TreeNode* root = build_tree({3,1,4,null,2});
+    cout << kthSmallest(root, 1) << endl;
+    root = build_tree({5,3,6,2,4,null,null,1});
+    cout << kthSmallest(root, 3) << endl;
 }
 
 int func(){
-    test_connect2();
+    test_kthSmallest();
     return 0;
 }
