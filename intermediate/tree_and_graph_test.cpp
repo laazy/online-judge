@@ -43,7 +43,24 @@ void test_buildTree(){
     TreeNode *ans = buildTree(pre, in);
 }
 
+void test_connect(){
+    Node root[7];
+    for (int i = 0; i < 3; i++){
+        root[i].val = i + 1;
+        root[i].left = &root[i * 2 + 1];
+        root[i].right = &root[i * 2 + 2];
+        root[i].next = nullptr;
+    }
+    for (int i = 3; i < 7; i++){
+        root[i].val = i + 1;
+        root[i].left = nullptr;
+        root[i].right = nullptr;
+        root[i].next = nullptr;
+    }
+    Node* ans = connect(root);
+}
+
 int func(){
-    test_buildTree();
+    test_connect();
     return 0;
 }

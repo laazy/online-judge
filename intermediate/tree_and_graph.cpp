@@ -88,3 +88,18 @@ TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
     TreeNode *ans = buildTree_helper(preorder, 0, inorder, 0, inorder.size() - 1);
     return ans;
 }
+
+Node* connect(Node* root) {
+    if (root == nullptr || root->left == nullptr){
+        return root;
+    }
+    Node *left = root->left, *right = root->right;
+    while (left != nullptr){
+        left->next = right;
+        left = left->right;
+        right = right->left;
+    }
+    connect(root->left);
+    connect(root->right);
+    return root;
+}

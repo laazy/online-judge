@@ -18,10 +18,10 @@ struct TreeNode {
 };
 
 struct Node {
-  int val;
-  Node *left;
-  Node *right;
-  Node *next;
+    int val;
+    Node* left;
+    Node* right;
+    Node* next;
 };
 
 vector<int> inorderTraversal(TreeNode* root);
@@ -29,5 +29,7 @@ vector<int> inorderTraversal(TreeNode* root);
 vector<vector<int>> zigzagLevelOrder(TreeNode* root);
 
 TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
+
+Node* connect(Node* root);
 
 #endif
