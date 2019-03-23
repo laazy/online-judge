@@ -32,4 +32,6 @@ TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 
 Node* connect(Node* root);
 
+Node* connect2(Node* root);
+
 #endif

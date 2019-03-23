@@ -103,3 +103,22 @@ Node* connect(Node* root) {
     connect(root->right);
     return root;
 }
+
+Node* connect2(Node* root){
+    if (root == nullptr || root->left == nullptr){
+        return root;
+    }
+    Node *head = root, *cur = head;
+    while(head->left){
+        cur->left->next = cur->right;
+        if (cur->next){
+            cur->right->next = cur->next->left;
+        }
+        cur = cur->next;
+        if (cur == nullptr){
+            head = head->left;
+            cur = head;
+        }
+    }
+    return root;
+}
