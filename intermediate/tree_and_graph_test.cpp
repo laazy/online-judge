@@ -87,7 +87,22 @@ void test_kthSmallest() {
     cout << kthSmallest(root, 3) << endl;
 }
 
+void test_numIslands(){
+    vector<vector<char>> map1 ={
+        {'1','1','1','1','0'},
+        {'1','1','1','1','0'},
+        {'1','1','0','0','0'},
+        {'0','0','0','0','0'}};
+    vector<vector<char>> map2 ={
+        {'1','1','0','0','0'},
+        {'1','1','0','0','0'},
+        {'0','0','1','0','0'},
+        {'0','0','0','1','1'}};
+    cout << numIslands(map1) << endl;
+    cout << numIslands(map2) << endl;
+}
+
 int func(){
-    test_kthSmallest();
+    test_numIslands();
     return 0;
 }

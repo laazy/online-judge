@@ -36,4 +36,6 @@ Node* connect2(Node* root);
 
 int kthSmallest(TreeNode* root, int k);
 
+int numIslands(vector<vector<char>>& grid);
+
 #endif

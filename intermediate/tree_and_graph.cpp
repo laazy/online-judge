@@ -147,3 +147,40 @@ int kthSmallest(TreeNode* root, int k) {
     int j = 0;
     return kthSmallest_helper(root, k, j)->val;
 }
+
+void dig_island(vector<vector<char>> &grid, int x, int y){
+    if (grid[x][y] == '0'){
+        return;
+    }
+    grid[x][y] = '0';
+    dig_island(grid, x - 1, y);
+    dig_island(grid, x + 1, y);
+    dig_island(grid, x, y -1);
+    dig_island(grid, x, y + 1);
+}
+
+int numIslands(vector<vector<char>>& grid) {
+    if (grid.empty()){
+        return 0;
+    }
+    // expand the map with ocean 
+    int size_x = grid.size(), size_y = grid[0].size(), ans = 0;
+    grid.emplace(grid.begin(), size_y, '0');
+    grid.emplace_back(size_y, '0');
+    for (auto &i : grid){
+        i.emplace(i.begin(), '0');
+        i.emplace_back('0');
+    }
+    size_x += 2;
+    size_y += 2;
+
+    for (int i = 0; i < size_x; i++){
+        for (int j = 0; j < size_y; j++){
+            if (grid[i][j] == '1'){
+                dig_island(grid, i, j);
+                ans++;
+            }
+        }
+    }
+    return ans;
+}
