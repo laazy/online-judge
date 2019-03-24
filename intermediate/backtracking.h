@@ -14,4 +14,6 @@ vector<vector<int>> permute(vector<int>& nums);
 
 vector<vector<int>> subsets(vector<int>& nums);
 
+bool exist(vector<vector<char>>& board, string word);
+
 #endif

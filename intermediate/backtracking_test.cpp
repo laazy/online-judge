@@ -31,7 +31,19 @@ void test_subsets(){
     print_matrix(subsets(nums));
 }
 
+void test_exist(){
+    vector<vector<char>> board = {
+        {'A','B','C','E'},
+        {'S','F','C','S'},
+        {'A','D','E','E'}};
+    cout << exist(board, "ABCCED") << endl;
+    cout << exist(board, "SEE") << endl;
+    cout << exist(board, "ABCB") << endl;
+    vector<vector<char>> board1 = {{'a'}};
+    cout << exist(board1, "a") << endl;
+}
+
 int func(){
-    test_permute();
+    test_exist();
     return 0;
 }

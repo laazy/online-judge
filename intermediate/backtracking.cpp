@@ -93,5 +93,60 @@ vector<vector<int>> permute(vector<int>& nums) {
  * 
  */ 
 vector<vector<int>> subsets(vector<int>& nums) {
+    if (nums.empty()){
+        return {};
+    }
+    if (nums.size() == 1){
+        return {{nums[0]}, {}};
+    }
+    int top = nums.back();
+    nums.pop_back();
+    auto ans = subsets(nums);
+    int size_b = ans.size();
+    for (int i = 0; i < size_b; i++){
+        auto temp = ans[i];
+        temp.push_back(top);
+        ans.push_back(temp);
+    }
+    return ans;
+}
 
+bool exist_helper(vector<vector<char>>& board, string &word, size_t x, size_t y, size_t cur){
+    if (cur == word.size()){
+        return true;
+    }
+    if (x < 0 || x >= board.size() || y < 0 || y >= board[0].size()){
+        return false;
+    }
+    if (board[x][y] == word[cur]){
+        char temp = board[x][y];
+        board[x][y] = ' ';
+        cur++;
+        if (exist_helper(board, word, x - 1, y, cur) || 
+            exist_helper(board, word, x + 1, y, cur) || 
+            exist_helper(board, word, x, y + 1, cur) || 
+            exist_helper(board, word, x, y - 1, cur)){
+            return true;
+        }
+        board[x][y] = temp;
+    }
+    return false;
+}
+
+bool exist(vector<vector<char>>& board, string word) {
+    if (word.empty()){
+        return true;
+    }
+    if (board.empty()){
+        return false;
+    }
+    size_t li_x = board.size(), li_y = board[0].size();
+    for (size_t x = 0; x < li_x; x++){
+        for (size_t y = 0; y < li_y; y++){
+            if (exist_helper(board, word, x, y, 0)){
+                return true;
+            }
+        }
+    }
+    return false;
 }
