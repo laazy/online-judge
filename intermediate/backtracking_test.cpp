@@ -21,7 +21,17 @@ void test_generateParenthesis(){
     print_string_matrix(ans);
 }
 
+void test_permute(){
+    vector<int> nums = {1,2,3};
+    print_matrix(permute(nums));
+}
+
+void test_subsets(){
+    vector<int> nums = {1,2,3};
+    print_matrix(subsets(nums));
+}
+
 int func(){
-    test_generateParenthesis();
+    test_permute();
     return 0;
 }

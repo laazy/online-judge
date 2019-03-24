@@ -10,4 +10,8 @@ vector<string> letterCombinations(string digits);
 
 vector<string> generateParenthesis(int n);
 
+vector<vector<int>> permute(vector<int>& nums);
+
+vector<vector<int>> subsets(vector<int>& nums);
+
 #endif
