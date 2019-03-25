@@ -1,7 +1,7 @@
 CC = g++
 CFLAGS = -g -Wall
 PROJECT_PATH = intermediate
-TARGET = backtracking
+TARGET = sort_search
 TARGET_TEST = $(TARGET)_test
 
 main: main.o $(TARGET).o $(TARGET_TEST).o util.o
