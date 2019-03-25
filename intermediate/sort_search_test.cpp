@@ -10,7 +10,14 @@ void test_sortColors(){
     print_vec(nums);
 }
 
+void test_topKFrequent(){
+    vector<int> nums = {1,1,1,2,2,3};
+    vector<int> nums1 = {-1, -1};
+    print_vec(topKFrequent(nums, 2));
+    print_vec(topKFrequent(nums1, 1));
+}
+
 int func(){
-    test_sortColors();
+    test_topKFrequent();
     return 0;
 }

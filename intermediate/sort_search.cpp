@@ -23,3 +23,21 @@ void sortColors(vector<int>& nums){
         }
     }
 }
+
+vector<int> topKFrequent(vector<int>& nums, int k) {
+    unordered_map<int, int> cnt;
+    priority_queue<pair<int, int>> pq;
+    vector<int> ans;
+    for (int &i : nums){
+        cnt[i]++;
+    }
+    for (auto i: cnt){
+        pq.push(pair<int, int>{i.second, i.first});
+    }
+    while (k > 0){
+        ans.push_back(pq.top().second);
+        pq.pop();
+        k--;
+    }
+    return ans;
+}
