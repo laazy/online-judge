@@ -1,10 +1,11 @@
 CC = g++
 CFLAGS = -g -Wall
+LFLAGS = -lpthread
 PROJECT_PATH = intermediate
-TARGET = sort_search
+TARGET = list_question
 TARGET_TEST = $(TARGET)_test
 
-main: main.o $(TARGET).o $(TARGET_TEST).o util.o
+main: main.o $(TARGET).o $(TARGET_TEST).o util.o $(LFLAGS)
 
 main.o: main.h main.cpp
 	$(CC) $(CFLAGS) -c $^ 
